@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.motionpoint.domain.CustomerEntity" table="CUSTOMER" schema="dbo" catalog="client1">
+        <id name="id">
+            <column name="ID" sql-type="bigint"/>
+        </id>
+        <property name="companyname">
+            <column name="COMPANYNAME" sql-type="varchar(40)" length="40"/>
+        </property>
+        <property name="contactname">
+            <column name="CONTACTNAME" sql-type="varchar(30)" length="30" />
+        </property>
+        <property name="address1">
+            <column name="ADDRESS1" sql-type="varchar(40)" length="40" />
+        </property>
+        <property name="address2">
+            <column name="ADDRESS2" sql-type="varchar(40)" length="40" />
+        </property>
+        <property name="city">
+            <column name="CITY" sql-type="varchar(25)" length="25" />
+        </property>
+        <property name="foreignstate">
+            <column name="FOREIGNSTATE" sql-type="varchar(25)" length="25" />
+        </property>
+        <property name="zip">
+            <column name="ZIP" sql-type="varchar(10)" length="10" />
+        </property>
+        <property name="phone">
+            <column name="PHONE" sql-type="varchar(25)" length="25" />
+        </property>
+        <property name="fax">
+            <column name="FAX" sql-type="varchar(25)" length="25" />
+        </property>
+        <property name="state">
+            <column name="STATE" sql-type="char(2)" length="2" />
+        </property>
+        <property name="country">
+            <column name="COUNTRY" sql-type="char(2)" length="2" />
+        </property>
+        <property name="accesslevel">
+            <column name="ACCESSLEVEL" sql-type="int" />
+        </property>
+        <property name="textmonthlylimit">
+            <column name="TEXTMONTHLYLIMIT" sql-type="real" precision="-1" />
+        </property>
+        <property name="filemonthlylimit">
+            <column name="FILEMONTHLYLIMIT" sql-type="real" precision="-1" />
+        </property>
+        <property name="textdailylimit">
+            <column name="TEXTDAILYLIMIT" sql-type="real" precision="-1" />
+        </property>
+        <property name="akamaiuserid">
+            <column name="AKAMAIUSERID" sql-type="varchar(50)" length="50" />
+        </property>
+        <property name="akamaipassword">
+            <column name="AKAMAIPASSWORD" sql-type="varchar(50)" length="50" />
+        </property>
+        <property name="concurrency">
+            <column name="CONCURRENCY" sql-type="bigint"/>
+        </property>
+
+        <property name="email" column="EMAIL" type="string"/>
+            <dynamic-component insert="true" name="customProperties" optimistic-lock="true" unique="false" update="true">
+        </dynamic-component>
+    </class>
+</hibernate-mapping>
